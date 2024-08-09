@@ -1,0 +1,90 @@
+---
+title: "About NixOS"
+subtitle: Short introduction into NixOS & Nix
+author: Pim Snel
+date: 07/16/2024 # MONTH/DAY/YEAR
+document_number: TNW024013
+
+format: technative-theme-revealjs
+date-format: "MMMM YYYY"
+incremental: false
+embed-resources: true
+filters:
+  - quarto
+---
+
+# What is NixOS? {.center data-background-color="#112f41"}
+
+- NixOS is a unique Linux distribution
+- Entirely built around the Nix package manager
+- Written in the Nix Programming Language
+- Focuses on declarative and reproducible configurations
+
+## NixOs as Linux distribution {.center data-background-color="#112f41"}
+
+- Can be used as daily desktop
+- Perfect for running in Cloud as full EC2
+- Can be used as docker container
+
+(optimized docker images made with NixOS are super small
+
+## Amount of packages software? {.center}
+
+![](nixos/b95bfbc9d582f343.png)
+
+# Technical Characteristics of NixOS {.center data-background-color="#112f41"}
+
+## Declarative System Configuration {.center data-background-color="#112f41"}
+
+- Configuration defined using Nix expressions
+- Describes the desired state of the entire system
+- Changes applied atomically, ensuring consistency
+
+# Nix Package Manager {.center data-background-color="#112f41"}
+
+- Functional package manager based on the Nix language
+- Hash-based addressing for reproducible builds ( it's a graph )
+- Provides atomic upgrades and rollbacks
+- Isolated environments using Nix profiles and environments
+
+# Immutable System Design {.center data-background-color="#112f41"}
+
+- System configurations are immutable
+- System state never modified directly
+- Atomic upgrades and rollbacks is easy
+- Enhances system reliability and reproducibility
+- Isolation through Nix environments for dependency management
+- Customizing system services and process with Nix
+- Changes are made by generating new system generations
+
+# Configuration Rollback {.center data-background-color="#112f41"}
+
+- Ability to roll back to previous system configurations
+- Enhances system reliability and recoverability
+
+# Reproducible Builds {.center data-background-color="#112f41"}
+
+- Exact dependencies specified in Nix expressions
+- Builds are reproducible across different environments
+
+# Isolated Environments {.center data-background-color="#112f41"}
+
+- Dependencies isolated from the system
+- Each package has its own isolated environment
+
+# Customizable Configurations {.center data-background-color="#112f41"}
+
+- Highly customizable configurations using Nix expressions
+- Tailor system settings and packages to specific requirements
+
+# NixOS Modules {.center data-background-color="#112f41"}
+
+- Modular system configuration components
+- Simplifies the organization and management of configuration settings
+
+# Rolling Release Model {.center data-background-color="#112f41"}
+
+- Continuous software updates without the need for version upgrades
+- Keeps the system up-to-date with the latest software versions
+
+{{< include includes/_99_outro.qmd >}}

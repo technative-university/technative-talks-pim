@@ -1,0 +1,16 @@
+pandotemp.md
+.temp.html
+.temp.seed
+.nix-gems-pandocomatic
+*_files/
+*.pdf
+*.html
+_extensions
+
+/.quarto/
+bgdark.jpg
+bgwhite.jpg
+cover-ill.png
+output
+.DS_Store
+myenv
