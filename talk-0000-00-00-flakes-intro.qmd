@@ -1,0 +1,36 @@
+---
+title: "About Nix Flakes"
+subtitle: Short introduction into Nix Flakes
+author: Pim Snel
+date: 07/16/2024 # MONTH/DAY/YEAR
+format: technative-theme-revealjs
+date-format: "MMMM YYYY"
+incremental: false
+embed-resources: true
+filters:
+  - quarto
+---
+
+# Flakes in a github project {.center data-background-color="#112f41"}
+
+Nix flakes allows dev's with a Nix setup to run commands like:
+
+```bash
+## Build sc-im
+nix build
+
+## Enter a dev shell
+nix develop
+
+## Enter a shell with sc-im compiled
+nix shell
+
+## Instantly run latest version from github
+nix run github:andmarti1424/sc-im
+
+## Or run a version from someone else with a specific commit hash
+nix run https://github.com/mipmip/sc-im/archive/91ba8cb61ff63e37262f6c6a96139e17c7751e35.tar.gz
+```
+
+
+{{< include includes/_99_outro.qmd >}}
