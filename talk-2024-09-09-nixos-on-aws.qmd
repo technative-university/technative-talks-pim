@@ -1,6 +1,6 @@
 ---
 title: "NixOS on EC2"
-subtitle: Introducing NixOS as provisioning Hero
+subtitle: Kennissessie over NixOS als OS en provisioning tool
 author: Pim Snel
 date: 07/16/2024 # MONTH/DAY/YEAR
 document_number: TNW024013
@@ -14,14 +14,19 @@ filters:
   - quarto
 ---
 
-- Wat is NixOS
-- Waarom kiest TechNative voor NixOS 
+## Over deze kennissessie
 
----
+- Wat is provisioning?
+- Wat is NixOS
+- Waarom kiest TechNative voor NixOS
+
+# Autoprovisioning
+
+AutoScaling EC2's moeten automatisch geprovisioned worden
 
 ## Wat is provisioning
 
-- installeer besturingssysteem 
+- installeer besturingssysteem
 - installeer noodzakelijk software
 - configureer gebruikers, permissies en authenticatie
 - configureer netwerk en beveiliging
@@ -29,26 +34,20 @@ filters:
 - configureer update- en uitrolmechanismes
 - etc..
 
-## Autoprovisioning
-
-AutoScaling EC2's moeten automatisch geprovisioned worden
-
 ## Momenten om te provisionen
 
 - A: Tijdens het bakken van de AMI (snel)
 - B: Tijdens het opstarten van de EC2 (flexibel)
-- C: Een mix van beide (het beste uit twee werelden)
+- C: Een mix van beide
 
----
-
-# Hoe configureer en bak je een AMI
+## Hoe configureer en bak je een AMI
 
 - Converteer een EC2 naar een AMI
 - Heel veel Bash scripts
 - Met Software zoals Ansible, Chef of Salt
 - NixOS AMI-builder
 
-# Hoe configureer je tijdens het starten
+## Hoe configureer je tijdens het starten
 
 - Heel veel Bash scripts
 - Met software zoals Ansible, Chef of Salt
@@ -59,36 +58,16 @@ AutoScaling EC2's moeten automatisch geprovisioned worden
 Declaratief vs. Imperitief
 
 - **Imperitief**: Beschrijf de stappen die nodig zijn om de eindstaat te bereiken
-- **Declaratief**: Beschrijf de eindstaat 
+- **Declaratief**: Beschrijf de eindstaat
 
+# Wat is NixOS dan toch eindelijk? {.center data-background-color="#112f41"}
 
-# TechNative's EC2 NixOS
+## Wat is NixOS dan toch eindelijk? {.center data-background-color="#112f41"}
 
-- Keuze uit PHP 5.6 tot PHP 8.4
-- Meerdere PHP versies naast elkaar
-- Meerdere Vhosts naast elkaar 
-- Nooit verplicht upgraden
-- Toegang tot alle pakketten uit de **nixpkgs**-repo
-- Eenvoudig custom software toe te voegen via **flakes**
-- Eenvoudig bestaande softwaren aan te passen via **overlays**
-- Een makkelijk configuratie-bestand per omgeving 
-
-# Wat betekend dat voor {{< meta client.shortname >}}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
---- 
+- NixOS is een unieke Linux-distributie
+- Volledig gebouwd rondom de Nix package manager
+- Geschreven in de Nix programmeertaal
+- Gericht op declaratieve en reproduceerbare configuraties
 
 > Nix is a powerful cross-platform package management tool. The benefits of Nix
 > are far reaching, but one big benefit is that once you adopt Nix, you can get
@@ -97,82 +76,61 @@ Declaratief vs. Imperitief
 
 *Mitchell Hashimoto - hoofdontwikkelaar van o.a. Vagrant, Packer, Terraform*
 
+## NixOs als Linux-distributie {.center data-background-color="#112f41"}
 
+- Kan worden gebruikt als dagelijkse desktop
+- Perfect om te draaien in de Cloud als volledige EC2
+- Kan worden gebruikt als docker container
 
+*geoptimaliseerde docker-afbeeldingen gemaakt met NixOS zijn super klein!*
 
-
-# What is NixOS? {.center data-background-color="#112f41"}
-
-- NixOS is a unique Linux distribution
-- Entirely built around the Nix package manager
-- Written in the Nix Programming Language
-- Focuses on declarative and reproducible configurations
-
-## NixOs as Linux distribution {.center data-background-color="#112f41"}
-
-- Can be used as daily desktop
-- Perfect for running in Cloud as full EC2
-- Can be used as docker container
-
-(optimized docker images made with NixOS are super small
-
-## Amount of packages software? {.center}
+## Aantal pakketten software? {.center}
 
 ![](nixos/b95bfbc9d582f343.png)
 
-# Technical Characteristics of NixOS {.center data-background-color="#112f41"}
+# Technische Kenmerken van NixOS {.center data-background-color="#112f41"}
 
-## Declarative System Configuration {.center data-background-color="#112f41"}
+## Declaratieve Systeemconfiguratie {.center data-background-color="#112f41"}
 
-- Configuration defined using Nix expressions
-- Describes the desired state of the entire system
-- Changes applied atomically, ensuring consistency
+- Configuratie gedefinieerd met Nix-expressies
+- Beschrijft de gewenste staat van het gehele systeem
+- Wijzigingen worden atomair toegepast, wat consistentie garandeert
 
-# Nix Package Manager {.center data-background-color="#112f41"}
+# Nix Pakketbeheerder {.center data-background-color="#112f41"}
 
-- Functional package manager based on the Nix language
-- Hash-based addressing for reproducible builds ( it's a graph )
-- Provides atomic upgrades and rollbacks
-- Isolated environments using Nix profiles and environments
+- Functionele pakketbeheerder gebaseerd op de Nix-taal
+- Hash-gebaseerde adressering voor reproduceerbare builds
+- Biedt atomische upgrades en rollbacks
+- Geïsoleerde omgevingen met behulp van Nix-profielen en omgevingen
 
-# Immutable System Design {.center data-background-color="#112f41"}
+```bash
+/nix/store/c4bdx4dja3h06xg1ksv3f51alp5a44li-php-8.4.1/bin/php
+/nix/store/c2gkab9ba8svmr5ivf7wdmpgcjr7ba09-php-8.4.1/bin/php
+```
 
-- System configurations are immutable
-- System state never modified directly
-- Atomic upgrades and rollbacks is easy
-- Enhances system reliability and reproducibility
-- Isolation through Nix environments for dependency management
-- Customizing system services and process with Nix
-- Changes are made by generating new system generations
+# TechNative's EC2 NixOS
 
-# Configuration Rollback {.center data-background-color="#112f41"}
+- Keuze uit PHP 5.6 tot PHP 8.4
+- Meerdere PHP versies naast elkaar
+- Meerdere Vhosts naast elkaar
+- Toegang tot alle pakketten uit de **nixpkgs**-repo
+- Eenvoudig custom software toe te voegen via **flakes**
+- Eenvoudig bestaande softwaren aan te passen via **overlays**
+- Een makkelijk configuratie-bestand per omgeving
+- Security patches via Vulnix
+- Eenvoudig uitrolmechanisme via S3 en Systemd
+- PHP Composer in uitrolmechanisme
+- CloudWatch integratie
+- SSM integratie
 
-- Ability to roll back to previous system configurations
-- Enhances system reliability and recoverability
+## Wat betekend dat voor {{< meta client.shortname >}}
 
-# Reproducible Builds {.center data-background-color="#112f41"}
+- Geen tijd kwijt bij het beheer van besturingssystemen
+- Makkelijk nieuwe omgevingen uitrollen met configuratie naar keuze
+- Experimenteren wordt makkelijker
+- Testen wordt makkelijker
+- Elke PHP versie beschikbaar en zelf te kiezen
+- Geen bijzondere kennis nodig
 
-- Exact dependencies specified in Nix expressions
-- Builds are reproducible across different environments
-
-# Isolated Environments {.center data-background-color="#112f41"}
-
-- Dependencies isolated from the system
-- Each package has its own isolated environment
-
-# Customizable Configurations {.center data-background-color="#112f41"}
-
-- Highly customizable configurations using Nix expressions
-- Tailor system settings and packages to specific requirements
-
-# NixOS Modules {.center data-background-color="#112f41"}
-
-- Modular system configuration components
-- Simplifies the organization and management of configuration settings
-
-# Rolling Release Model {.center data-background-color="#112f41"}
-
-- Continuous software updates without the need for version upgrades
-- Keeps the system up-to-date with the latest software versions
 
 {{< include includes/_99_outro.qmd >}}
