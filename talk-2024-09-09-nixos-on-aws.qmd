@@ -1,8 +1,9 @@
 ---
 title: "NixOS on EC2"
-subtitle: Kennissessie over NixOS als OS en provisioning tool
+subtitle: Kennissessie over NixOS als EC2 besturingssysteem en provisioning tool
 author: Pim Snel
 date: 07/16/2024 # MONTH/DAY/YEAR
+lang: nl
 document_number: TNW024013
 client:
   shortname: SmartMC
@@ -14,17 +15,22 @@ filters:
   - quarto
 ---
 
-## Over deze kennissessie
+## Over deze kennissessie {.center data-background-color="#112f41"}
 
-- Wat is provisioning?
+- Eisen van AutoScaling
+- Wat is (auto)provisioning?
 - Wat is NixOS
 - Waarom kiest TechNative voor NixOS
 
-# Autoprovisioning
+## Eisen AutoScaling {.center data-background-color="#112f41"}
 
-AutoScaling EC2's moeten automatisch geprovisioned worden
+AutoScaling EC2's hebben extra eisen om te functioneren:
 
-## Wat is provisioning
+- Load balancer
+- Scheiding van data en een stateless applicatie
+- EC2's moeten automatisch geprovisioned worden
+
+## Wat is provisioning {.center data-background-color="#112f41"}
 
 - installeer besturingssysteem
 - installeer noodzakelijk software
@@ -34,26 +40,26 @@ AutoScaling EC2's moeten automatisch geprovisioned worden
 - configureer update- en uitrolmechanismes
 - etc..
 
-## Momenten om te provisionen
+## Momenten om te provisionen {.center data-background-color="#112f41"}
 
 - A: Tijdens het bakken van de AMI (snel)
 - B: Tijdens het opstarten van de EC2 (flexibel)
 - C: Een mix van beide
 
-## Hoe configureer en bak je een AMI
+## Hoe configureer en bak je een AMI {.center data-background-color="#112f41"}
 
 - Converteer een EC2 naar een AMI
 - Heel veel Bash scripts
 - Met Software zoals Ansible, Chef of Salt
 - NixOS AMI-builder
 
-## Hoe configureer je tijdens het starten
+## Hoe configureer je tijdens het starten {.center data-background-color="#112f41"}
 
 - Heel veel Bash scripts
 - Met software zoals Ansible, Chef of Salt
 - Met Systemd
 
-# NixOS vs. de rest
+# NixOS vs. de rest {.center data-background-color="#112f41"}
 
 Declaratief vs. Imperitief
 
@@ -64,17 +70,19 @@ Declaratief vs. Imperitief
 
 ## Wat is NixOS dan toch eindelijk? {.center data-background-color="#112f41"}
 
+> "Nix is a powerful cross-platform package management tool. The benefits of Nix
+> are far reaching, but one big benefit is that once you adopt Nix, you can get
+> a consistent environment across development (on both Linux and Mac), CI, and
+> production."
+
+*Mitchell Hashimoto - hoofdontwikkelaar van o.a. Vagrant, Packer, Terraform*
+
+## Wat is NixOS dan toch eindelijk? {.center data-background-color="#112f41"}
+
 - NixOS is een unieke Linux-distributie
 - Volledig gebouwd rondom de Nix package manager
 - Geschreven in de Nix programmeertaal
 - Gericht op declaratieve en reproduceerbare configuraties
-
-> Nix is a powerful cross-platform package management tool. The benefits of Nix
-> are far reaching, but one big benefit is that once you adopt Nix, you can get
-> a consistent environment across development (on both Linux and Mac), CI, and
-> production.
-
-*Mitchell Hashimoto - hoofdontwikkelaar van o.a. Vagrant, Packer, Terraform*
 
 ## NixOs als Linux-distributie {.center data-background-color="#112f41"}
 
@@ -82,7 +90,7 @@ Declaratief vs. Imperitief
 - Perfect om te draaien in de Cloud als volledige EC2
 - Kan worden gebruikt als docker container
 
-*geoptimaliseerde docker-afbeeldingen gemaakt met NixOS zijn super klein!*
+*geoptimaliseerde docker-containers gemaakt met NixOS zijn super klein!*
 
 ## Aantal pakketten software? {.center}
 
@@ -105,17 +113,17 @@ Declaratief vs. Imperitief
 
 ```bash
 /nix/store/c4bdx4dja3h06xg1ksv3f51alp5a44li-php-8.4.1/bin/php
-/nix/store/c2gkab9ba8svmr5ivf7wdmpgcjr7ba09-php-8.4.1/bin/php
+/nix/store/c2gkab9ba8svmr5ivf7wdmpgcjr7ba09-php-8.2.4/bin/php
 ```
 
-# TechNative's EC2 NixOS
+# TechNative's EC2 NixOS {.center data-background-color="#112f41"}
 
 - Keuze uit PHP 5.6 tot PHP 8.4
 - Meerdere PHP versies naast elkaar
 - Meerdere Vhosts naast elkaar
 - Toegang tot alle pakketten uit de **nixpkgs**-repo
 - Eenvoudig custom software toe te voegen via **flakes**
-- Eenvoudig bestaande softwaren aan te passen via **overlays**
+- Eenvoudig bestaande software aan te passen via **overlays**
 - Een makkelijk configuratie-bestand per omgeving
 - Security patches via Vulnix
 - Eenvoudig uitrolmechanisme via S3 en Systemd
@@ -123,14 +131,13 @@ Declaratief vs. Imperitief
 - CloudWatch integratie
 - SSM integratie
 
-## Wat betekend dat voor {{< meta client.shortname >}}
+## Wat betekend dat voor {{< meta client.shortname >}} {.center data-background-color="#112f41"}
 
 - Geen tijd kwijt bij het beheer van besturingssystemen
-- Makkelijk nieuwe omgevingen uitrollen met configuratie naar keuze
+- Makkelijk nieuwe omgevingen uitrollen met configuraties naar keuze
 - Experimenteren wordt makkelijker
 - Testen wordt makkelijker
 - Elke PHP versie beschikbaar en zelf te kiezen
 - Geen bijzondere kennis nodig
-
 
 {{< include includes/_99_outro.qmd >}}
