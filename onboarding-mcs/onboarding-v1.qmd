@@ -1,0 +1,98 @@
+---
+title: "Onboarding Managed Cloud Services Engineer"
+subtitle: Onboarding 
+author: Wouter van der Toorren
+date: 09/27/2024 # MONTH/DAY/YEAR
+lang: nl
+document_number: TNSO-0001
+format: technative-theme-revealjs
+date-format: "MMMM YYYY"
+incremental: false
+embed-resources: true
+filters:
+  - quarto
+---
+## Onboarding TechNative {.center data-background-color="#112f41"}
+
+- Welcome Meeting
+- Work Instructions and Access
+- Company Procedures
+- Advanced Topics & Company Workflows
+
+## Welcome meeting {.center data-background-color="#112f41"}
+
+- Welcome
+- Meet the team
+- Meet the company
+- Introduction to company culture
+- Overview technical stack
+
+>Cloud Commandos: Conquer Every AWS Challenge with Us!
+
+## Meet the team {.center data-background-color="#112f41"}
+
+![](./meet-the-team-01.jpg)
+
+## Meet the team {.center data-background-color="#112f41"}
+
+![](./managed-cloud-services-01.jpg)
+
+## Meet the team {.center data-background-color="#112f41"}
+
+![](./managed-cloud-services-02.jpg)
+
+## Meet the team {.center data-background-color="#112f41"}
+
+![](./managed-cloud-services-03.jpg)
+
+## Meet the team {.center data-background-color="#112f41"}
+
+![](./managed-cloud-services-04.jpg)
+
+## Meet the company {.center data-background-color="#112f41"}
+
+![](./hr-finance-01.jpg)
+
+## Meet the company {.center data-background-color="#112f41"}
+
+![](./finops-consultancy-01.jpg)
+
+## Meet the company {.center data-background-color="#112f41"}
+
+![](./finops-consultancy-02.jpg)
+
+## Meet the company {.center data-background-color="#112f41"}
+### Management
+
+- Bas Anneveld
+- Walter van der Harst
+- Richard van Os
+
+## Company Culture {.center data-background-color="#112f41"}
+#### Core Values
+- Integrity: We believe in honesty and transparency in all our dealings.
+- Innovation: We encourage creativity and new ideas to drive our success.
+- Collaboration: Teamwork is at the heart of everything we do.
+- Customer Focus: Our customers’ needs and satisfaction are our top priorities.
+
+## Company Culture {.center data-background-color="#112f41"}
+#### Work Environment
+- Inclusive and Diverse: We celebrate diversity and strive to create an inclusive environment where everyone feels valued.
+- Supportive Atmosphere: We foster a supportive and friendly workplace where colleagues help each other succeed.
+- Open Communication: We maintain open lines of communication at all levels of the organization.
+
+## Company Culture {.center data-background-color="#112f41"}
+#### Employee Engagement
+- Regular Feedback: We believe in continuous feedback and open dialogue to help you grow.
+
+## Company Culture {.center data-background-color="#112f41"}
+#### Professional Development
+- Training Opportunities: We encourage you to follow training- and certification programs that help you develop your skills.
+- Career Growth: We provide clear career paths and opportunities for advancement within the company.
+- Mentorship: You will be assigned a mentor to guide you and help you integrate smoothly
+
+## Company Culture {.center data-background-color="#112f41"}
+#### Work-Life Balance
+- Flexible Working Hours: We offer flexible working arrangements to help you balance their personal and professional lives.
+-  Sport Program: We have initiatives to support the physical and mental health of our employees.
+
